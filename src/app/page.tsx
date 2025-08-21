@@ -1,7 +1,19 @@
-import Image from "next/image";
+"use client";
+
+import { Authenticated } from "convex/react";
+import { UserButton } from "@clerk/nextjs";
+
+
 
 export default function Home() {
+
   return (
-    <h1>Hello world</h1>
+    <>
+
+      <UserButton />
+
+      Hello chat app
+    </>
   );
 }
+
