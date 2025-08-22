@@ -5,6 +5,15 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: false,
   },
+  redirects: async () => {
+    return [
+      {
+        source: "/",
+        destination: "/conversations",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

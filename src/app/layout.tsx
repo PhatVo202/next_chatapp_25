@@ -6,10 +6,10 @@ import {
   ClerkProvider,
   SignInButton,
   SignUpButton,
-  SignedIn,
   SignedOut,
-  UserButton,
 } from '@clerk/nextjs'
+import Image from "next/image";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,21 +37,25 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <header className="flex justify-end items-center p-4 gap-4 h-16">
+          <header className="">
+            {/* <div className="flex flex-col items-center justify-center w-full h-full"> */}
+
             <SignedOut>
-              <SignInButton />
-              <SignUpButton>
-                <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
-                  Sign Up
+              <Image src="/logochat.webp" alt="logo" width={350} height={350} />
+              <SignInButton >
+                <button className="bg-[#6c47ff] text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer w-2xl">
+                  Sign In
                 </button>
-              </SignUpButton>
+              </SignInButton>
             </SignedOut>
-            {/* <SignedIn>
-              <UserButton />
-            </SignedIn> */}
+            {/* </div> */}
+
+
           </header>
           <ConvexClientProvider>
-            {children}
+            <TooltipProvider>
+              {children}
+            </TooltipProvider>
           </ConvexClientProvider>
         </body>
       </html>
